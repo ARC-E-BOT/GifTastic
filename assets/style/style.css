@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+}
+
+.navBar{
+    background: gray;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+}
+
+.navButton{
+    margin: 9px 6px;
+    float: left;
+}
+
+.borderRight{
+    padding-right: 8px;
+    border-right: 3px solid black;
+}
+
+.centerDiv{
+    margin: auto;
+    text-align: center;
+    width: 20%;
+    height: 60px;
+}
