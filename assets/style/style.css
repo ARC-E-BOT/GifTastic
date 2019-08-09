@@ -1,7 +1,10 @@
 body{
     margin: 0;
 }
-
+/* 
+    beginning of NavBar style
+    =========================
+*/
 .navBar{
     background: gray;
     width: 100%;
@@ -10,18 +13,89 @@ body{
 }
 
 .navButton{
-    margin: 9px 6px;
+    margin: 2px 0 0 0;
+    padding: 9px;
     float: left;
 }
 
+.navButton:hover{
+    background: darkblue
+}
+
 .borderRight{
-    padding-right: 8px;
+    padding-right: 9px;
     border-right: 3px solid black;
 }
 
 .centerDiv{
     margin: auto;
     text-align: center;
-    width: 20%;
+    width: 380px;
     height: 60px;
+}
+/* 
+    end of NavBar style
+    ===================
+*/
+.buttons{
+    margin: 5px;
+    border-radius: 4px;
+}
+
+#content{
+    margin: 5px auto;
+    width: 960px;
+    height: 100%;
+}
+
+#button-container{
+    width: 100%;
+    min-height: 5%;
+    margin-bottom: 5px;
+    background: green;
+}
+
+#content-container{
+    float: left;
+    background: purple;
+    width: 710px;
+    height: 100%;
+}
+
+#search-container{
+    float: left;
+    margin-left: 10px;
+    background: purple;
+    width: 240px;
+    height: 100%;
+}
+
+.img-content-container{
+    margin: 2px;
+    float: left;
+    width: 345px;
+    height: 350px;
+    background: gray;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+.img-title-text{
+    margin: 3px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.img-stats{
+    margin: 5px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.img-gif{
+    margin: 5px;
+    max-width: 335px;
+    max-height: 300px;
 }
