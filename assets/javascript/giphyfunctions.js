@@ -39,7 +39,14 @@ function createQueryButtonListener(button){
             searchGiphy(searchTerm);
         })
     } else {
-        //if isGiphy is not true do other things
+        //if isGiphy is not true search omdb
+        button.addEventListener("click", function() {
+            //get the attribute "query-term" and store it to a variable
+            let searchTerm = this.getAttribute("query-term");
+
+            //run the search giphy function for gif's related to the term we got above
+            searchOmdb(searchTerm);
+        })
     }
 }
 
