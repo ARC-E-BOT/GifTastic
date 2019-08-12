@@ -74,7 +74,7 @@ body{
     margin: 2px;
     float: left;
     width: 345px;
-    height: 350px;
+    height: 400px;
     background: gray;
     border: 2px solid blue;
     border-radius: 10px;
@@ -84,10 +84,11 @@ body{
     margin: 3px;
     text-align: center;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .img-stats{
+    color: rebeccapurple;
     margin: 5px;
     text-align: left;
     font-size: 18px;
@@ -95,7 +96,7 @@ body{
 }
 
 .img-gif{
-    margin: 5px;
-    max-width: 335px;
-    max-height: 300px;
+    margin: auto;
+    width: 345px;
+    height: 200px;
 }
