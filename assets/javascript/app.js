@@ -2,6 +2,7 @@
 
 //make variables for apikeys
 const giphyApiKey = "ica0VRIf5YVeCJA1gnkaaKbsoJcFltWN";
+const omdbApoKey = "e8fe52ad";
 
 //config variables
 const ratings = "&rating=g&rating=pg&rating=pg-13";
@@ -13,6 +14,21 @@ let offset = 0;
 let gifTerms = ["chocolate","cake","pancake","bacon","steak","porkchop"];
 let isGiphy = true;
 
+let favoritesArr = [];
+
 let lastQuery = "";
 
 createGifPage();
+
+
+document.getElementById("giphy-nav-button").addEventListener("click", function(){
+    createGifPage();
+})
+
+document.getElementById("ombd=nav-button").addEventListener("click", function(){
+    createGifPage();
+})
+
+document.getElementById("favorites-nav-button").addEventListener("click", function(){
+    createFavoritesView();
+})

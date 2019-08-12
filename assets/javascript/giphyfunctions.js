@@ -126,6 +126,18 @@ function makeCards(data){
     newImg.className = "img-gif";
     newImg.src = data.images.original_still.url;
 
+    //create a object for favorites
+    let dataObj = {
+        still: data.images.original_still.url,
+        animated: data.images.original.url,
+        title: data.title,
+        date: data.import_datetime,
+        rating: data.rating,
+        username: data.username,
+        url: data.url
+    }
+    dataObj = JSON.stringify(dataObj);
+
     /*
         creating attributes and assigning them to the img element
         gif-still = is the link to the still image of the gif
@@ -173,6 +185,26 @@ function makeCards(data){
     <p class="img-stats">Rating: ${data.rating}</p>
     <p class="img-stats">Upload Date: ${data.import_datetime.substring(0,10)}</p>
     <p class="img-stats"><a href="${data.url}" target="_blank">Link to gif page</a></p>${username}`;
+
+    //create the favorites button, create attribute called card-data and add stringified object of the data to the attribute
+    const newFavoritesButton = document.createElement("button");
+    newFavoritesButton.setAttribute("card-data", dataObj);
+
+    //set the buttons text content to favorite?, set the class name to buttons, set the id to favorites-button
+    newFavoritesButton.textContent = "Favorite?";
+    newFavoritesButton.className = "buttons";
+    newFavoritesButton.id = "favorites-button";
+
+
+    //add an event listener to the new favorites button
+    newFavoritesButton.addEventListener("click", function(){
+        const cardData = JSON.parse(this.getAttribute("card-data"));
+        favoritesArr.push(cardData);
+        this.remove();
+    });
+
+    //add the new favorites button
+    newTextDiv.appendChild(newFavoritesButton);
 
     //append the text div to the card div and return the card div to be used outside this function
     newCardDiv.appendChild(newTextDiv);
