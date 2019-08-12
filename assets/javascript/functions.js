@@ -56,6 +56,9 @@ function searchGiphy(queryTerm, isMoreButton){
         
         //set the lastQuery url so it may be used at a later date to load more gif's
         lastQuery = queryUrl;
+
+        //reset the offset variable to 0 so the more button will load the proper gif's 
+        offset = 0;
     } else {
         //adding 10 to the offset so we will get new gif's
         offset = offset + 10;
@@ -178,7 +181,7 @@ function makeCards(data){
 
 
 /*
-    this function is to create the html for the page on load
+    this function is to create the html for the page on load / Giphy button at the top of the page
 */
 function createGifPage(){
     //create the base layout for the content of the page
