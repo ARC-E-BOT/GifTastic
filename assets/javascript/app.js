@@ -1,9 +1,13 @@
+//this is basically a config file LOL
+
 const giphyApiKey = "ica0VRIf5YVeCJA1gnkaaKbsoJcFltWN";
 const ratings = "&rating=g&rating=pg&rating=pg-13";
 const limit = 10;
-let offest = 0;
+let offset = 0;
 
-let testing = ["halo", "boot", "floopin"];
+let gifTerms = ["chocolate","cake","pancake","bacon","steak","porkchop"];
 let isGiphy = true;
 
-createButtons(testing, document.getElementById("button-container"));
+let lastQuery = "";
+
+createGifPage();

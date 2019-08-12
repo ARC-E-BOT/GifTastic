@@ -24,7 +24,7 @@ body{
 
 .borderRight{
     padding-right: 9px;
-    border-right: 3px solid black;
+    border-right: 2px solid black;
 }
 
 .centerDiv{
@@ -40,6 +40,8 @@ body{
 .buttons{
     margin: 5px;
     border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 #content{
@@ -70,14 +72,19 @@ body{
     height: 100%;
 }
 
+
+/*
+    start of gif card styling
+    ========================
+*/
 .img-content-container{
     margin: 2px;
-    float: left;
     width: 345px;
-    height: 400px;
+    min-height: 300px;
     background: gray;
     border: 2px solid blue;
     border-radius: 10px;
+    display: inline-block;
 }
 
 .img-title-text{
@@ -98,5 +105,31 @@ body{
 .img-gif{
     margin: auto;
     width: 345px;
-    height: 200px;
+    height: 250px;
+    border-radius: 9px;
+}
+/* 
+    end of gif card styling
+    =======================
+*/
+
+.new-button-text-box{
+    margin: 5px;
+    width: 95%;
+}
+
+#add-a-button{
+    margin-bottom: 5px;
+    text-align: center;
+    color: aqua
+}
+
+#new-button{
+    width: 95%;
+}
+
+#more-button{
+    font-size: 38px;
+    margin: 5px;
+    width: 95%;
 }

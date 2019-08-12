@@ -24,7 +24,10 @@ function createButtons(arr, toAppendHTML){
     return toAppendHTML;
 }
 
-//this function is for creating the event listeners on the passed in button based on wether the global variable isGiphy is true indicating if we are looking at giphy or something else 
+
+/*
+    this function is for creating the event listeners on the passed in button based on wether the global variable isGiphy is true indicating if we are looking at giphy or something else 
+*/
 function createQueryButtonListener(button){
     if (isGiphy) {
         //if isGiphy is true then create a event listener for click 
@@ -40,10 +43,26 @@ function createQueryButtonListener(button){
     }
 }
 
-//this function searches giphy for the passed in query term
-function searchGiphy(queryTerm){
-    //generate the queryUrl with the apikey (global variable), query term (argument), limit (global variable), and ratings (global variable)
-    let queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${queryTerm}&limit=${limit}${ratings}`;
+
+/*
+    this function searches giphy for the passed in query term
+*/
+function searchGiphy(queryTerm, isMoreButton){
+    let queryUrl;
+    if(!isMoreButton){
+        
+        //generate the queryUrl with the apikey (global variable), query term (argument), limit (global variable), and ratings (global variable)
+        queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${queryTerm}&limit=${limit}${ratings}`;
+        
+        //set the lastQuery url so it may be used at a later date to load more gif's
+        lastQuery = queryUrl;
+    } else {
+        //adding 10 to the offset so we will get new gif's
+        offset = offset + 10;
+        queryUrl = `${lastQuery}&offset=${offset}`;
+    }
+
+
 
     //use the newly created queryUrl to fetch the requested gif's from giphy
     fetch(queryUrl)
@@ -58,6 +77,11 @@ function searchGiphy(queryTerm){
             //creating a data variable so i do not have to put responseJson.data every time i want to reference it
             const data = responseJson.data;
 
+            const contentContainer = document.getElementById("content-container");
+
+            //clearing the content container for the new gifs to flood in if the more button has not been pressed
+            if(!isMoreButton) contentContainer.innerHTML = "";
+
             //looping through the new data variable
             for(let i = 0; i<data.length; i++){
                 
@@ -65,12 +89,30 @@ function searchGiphy(queryTerm){
                 const card = makeCards(data[i]);
 
                 //appending the new gif card to the content-container html element on the page
-                document.getElementById("content-container").appendChild(card);
+                contentContainer.appendChild(card);
             }
+
+            //create the more button at the bottom of the page set its text to More, set its class to buttons, and set its id to more-button
+            const newMoreButton = document.createElement("button");
+            newMoreButton.textContent = "More";
+            newMoreButton.className = "buttons";
+            newMoreButton.id = "more-button";
+
+            //add event listener to the new more button that runs another search on giphy for more of the same results and removes its self
+            newMoreButton.addEventListener("click", function(){
+                searchGiphy("", true);
+                this.remove();
+            })
+
+            //append the button to the bottom of the page
+            contentContainer.appendChild(newMoreButton);
         })
 }
 
-//this function takes a gif object from giphy and makes a html "card" for it
+
+/*
+    this function takes a gif object from giphy and makes a html "card" for it
+*/
 function makeCards(data){
     //make a new div and set its className to "img-content-container"
     const newCardDiv = document.createElement("div");
@@ -134,13 +176,50 @@ function makeCards(data){
     return newCardDiv;
 }
 
+
 /*
-    <div class="img-content-container">
-        <p class="img-title-text">Title: FLOOPIN</p>
-        <img class="img-gif" src="https://media.giphy.com/media/cKW5nRbUXpOYAtSy2r/giphy.gif" alt="">
-        <p class="img-stats">Rating: g</p>
-        <p class="img-stats">Upload Date: g</p>
-        <p class="img-stats">Link to gif page</p>
-        <p class="img-stats">username: g</p>
-    </div>
+    this function is to create the html for the page on load
 */
+function createGifPage(){
+    //create the base layout for the content of the page
+    document.getElementById("content").innerHTML = `
+    <div id="button-container"></div>
+    <div id="content-container"></div>
+    <div id="search-container">
+        <h2 id="add-a-button">Add a button:</h2>
+        <input type="text" class="new-button-text-box" id="new-button-text-box"><br>
+    </div>`;
+    //create a new button, set its text to Submit, set ist className to buttons, and set its id to new-button
+    const newButton = document.createElement("button");
+    newButton.innerText = "Submit";
+    newButton.className = "buttons";
+    newButton.id = "new-button";
+
+    //add an event listener to the new button so we may add the textbox value to the list of buttons
+    newButton.addEventListener("click", function(){
+        //getting the value from the text box and checking if it is empty and if it is popup an alert stating so!
+        const value = document.getElementById("new-button-text-box").value.trim();
+        if(value.length === 0) return alert("please input text that you would like to search for before pressing submit!");
+
+        //add the value to the gifTerms array
+        gifTerms.push(value);
+
+        //create a new button
+        let button = document.createElement("button");
+        button.textContent = value;
+        button.className = "buttons";
+
+        //setting a custom attribute called query-term to the string in the array with the index of i and create a listener for said button
+        button.setAttribute("query-term", value);
+        createQueryButtonListener(button);
+
+        //append the new button to the passed in html element
+        document.getElementById("button-container").appendChild(button);
+    })
+
+    //appending the new button to the search container element 
+    document.getElementById("search-container").appendChild(newButton);
+
+    //create the search buttons
+    createButtons(gifTerms, document.getElementById("button-container"));
+}
