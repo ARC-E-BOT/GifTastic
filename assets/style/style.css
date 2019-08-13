@@ -293,3 +293,31 @@ p{
         width: 95%;
     }
 }
+
+
+@media screen and (max-width: 400px) {
+    #search-container{
+        width: 95%;
+        position: absolute;
+        margin: 0px 10px;
+    }
+    #new-button-text-box{
+        width: 95%;
+        display: block;
+        margin: auto;
+    }
+    #new-button{
+        width: 95%;
+        display: block;
+        margin: auto;
+    }
+    #content-container{
+        width: 95%;
+        text-align: center;
+        margin: 10px 10px;
+    }
+    #button-container{
+        width: 95%;
+        margin: 150px 10px 0;
+    }
+}
