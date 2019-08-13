@@ -12,7 +12,7 @@ const limit = 10;
 let offset = 0;
 
 //omdb config items 
-let omdbTerms = ["frozen", "sing", "tommy boy", "hellboy", "core"];
+let omdbTerms = ["frozen", "sing", "tommy boy", "hellboy", "the core"];
 let plot = "short";
 
 //gif config items 

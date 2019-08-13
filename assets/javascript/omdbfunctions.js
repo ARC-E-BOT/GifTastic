@@ -89,5 +89,31 @@ function searchOmdb(queryTerm){
         //after we converted the data to an actual object then we can work with it
         .then(responseJson => {
            console.log(responseJson);
+           createMovieView(responseJson);
         })
+}
+
+//create the movie view for the page
+function createMovieView(data){
+    //clear the content on the page 
+    document.getElementById("content-container").innerHTML = "";
+
+    //create a new div to house everything, and set a id of "movie-div"
+    const newDiv = document.createElement("div");
+    newDiv.id = "movie-div";
+
+    //set the html of the div using the string concatenation below
+    newDiv.innerHTML = `
+        <h1 id="movie-title">Title: ${data.Title}<hr></h1>
+        <h3>Rating: ${data.Rated}</h3>
+        <h3>Runtime: ${data.Runtime}</h3>
+        <h3>Released: ${data.Released}</h3>
+        <h3>Production Company: ${data.Production}</h3>
+        <h3>BoxOffice: ${data.BoxOffice}</h3>
+        <p><a id="plot-text">Plot:</a> ${data.Plot}</p>
+        <img src="${data.Poster}">
+    `;
+    
+    //add the new div to the content container on the page so it can be seen
+    document.getElementById("content-container").appendChild(newDiv);
 }
