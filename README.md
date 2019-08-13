@@ -3,17 +3,17 @@ Search Giphy and omdb with ease. Create buttons to add future searches to both g
 
 # Usage
 
-## **Giphy**
+### **Giphy**
 - click one of the premade buttons at the top of the page to display 10 gif's
 - make your own custom button using the text box under the "Add a button" text on the right side of the screen
 - click a gif to play/pause said gif
 - click "favorite?" button under the gif to add it to your favorites view
 
-## **OMDB**
+### **OMDB**
 - click one of the premade buttons at the top of the page to display stats about a movie with that name
 - make your own custom button using the text box under the "Add a button" text on the right side of the screen
 
-## **Favorites**
+### **Favorites**
 - if you do not have any favorites you will be alerted and sent back to the giphy view
 - click a gif to play/pause said gif
 - click "Un-Favorite?" to remove it from view/Favorites
