@@ -4,6 +4,9 @@ function createFavoritesView(){
     const contentHTML = document.getElementById("content");
     contentHTML.innerHTML = "";
 
+    //setting the class name to favorites-content so the page will fill with gifs no mater the size
+    contentHTML.className = "favorites-content";
+
     //if the favorites array is not empty then loop through them to create cards
     if(favoritesArr.length !== 0) {
         for(let i = 0; i<favoritesArr.length;i++){

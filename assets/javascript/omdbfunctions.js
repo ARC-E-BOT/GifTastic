@@ -1,4 +1,7 @@
 function createOmdbHtmlPage(){
+    //setting the class name back to content so the page will sit right 
+    document.getElementById("content").className = "content";
+    
     //get the content element of the html, and set its inner html to nothing
     const contentHTML = document.getElementById("content");
     contentHTML.innerHTML = "";

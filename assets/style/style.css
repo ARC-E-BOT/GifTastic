@@ -1,17 +1,15 @@
 body{
     margin: 0;
-    background: url("https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F08%2Fgiphy-film-festival-announcement-00.jpg?q=75&w=800&cbr=1&fit=max");
-    background-position: center;
-    background-size: cover;
-    background-size: 100% 100%;
-    position: relative;
+    background: linear-gradient(#19547b, #ffd89b);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 /* 
     beginning of NavBar style
     =========================
 */
 .navBar{
-    background: gray;
+    background: linear-gradient(to bottom right, #283048, #859398);
     width: 100%;
     height: 60px;
     margin: 0;
@@ -22,10 +20,11 @@ body{
     margin: 2px 0 0 0;
     padding: 9px;
     float: left;
+    color: aqua;
 }
 
 .navButton:hover{
-    background: darkblue;
+    background: rgba(0, 0, 139, 0.13);
     color: white;
 }
 
@@ -51,10 +50,18 @@ body{
     font-weight: bold;
 }
 
-#content{
+.content{
     margin: 5px auto;
     width: 960px;
     height: 100%;
+    text-align: center;
+}
+
+.favorites-content{
+    margin: 5px auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 #button-container{
@@ -62,6 +69,7 @@ body{
     width: 100%;
     min-height: 5%;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 #content-container{
@@ -138,6 +146,7 @@ body{
     font-size: 38px;
     margin: 0;
     width: 100%;
+    background: dodgerblue;
 }
 
 #favorites-button{
@@ -165,11 +174,13 @@ p{
 }
 
 @media screen and (max-width: 980px) {
-    #content{
+    .content{
         width: 100%;
     }
     #button-container{
+        margin: 0 25px;
         margin-top: 150px;
+        width: 95%;
         text-align: center;
     }
     #search-container{
@@ -199,6 +210,10 @@ p{
 
 
 @media screen and (max-width: 768px) {
+    #button-container{
+        margin: 0 15px;
+        margin-top: 150px;
+    }
     #search-container{
         width: 96%;
         position: absolute;

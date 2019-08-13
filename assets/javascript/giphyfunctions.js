@@ -223,9 +223,12 @@ function makeCards(data){
     this function is to create the html for the page on load / Giphy button at the top of the page
 */
 function createGifPage(){
+    //setting the class name back to content so the page will sit right 
+    document.getElementById("content").className = "content";
+
     //set the is giphy variable to true to determine wether or not we are searching giphy or omdb
     isGiphy = true;
-    
+
     //create the base layout for the content of the page
     document.getElementById("content").innerHTML = `
     <div id="button-container"></div>
