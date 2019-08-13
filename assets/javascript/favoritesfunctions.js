@@ -124,6 +124,10 @@ function makeFavoritesCards(data){
 
         //remove the card from the display
         this.parentElement.parentElement.remove();
+
+        
+        //update the local forage data 
+        setLists();
     });
 
     //add the new favorites button

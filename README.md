@@ -26,4 +26,7 @@ https://arc-e-bot.github.io/GifTastic/
 - [x] add omdb functionality to the page
 - [x] add favorites functionality to the page
 - [x] create media queries
-- [ ] leverage local forage to make data persistent 
+- [x] leverage local forage to make data persistent
+    - [x] Add local forage
+    - [x] make functions to work with local forage
+    - [x] store arrays in local forage

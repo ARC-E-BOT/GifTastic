@@ -42,6 +42,9 @@ function createOmdbHtmlPage(){
 
         //append the new button to the passed in html element
         document.getElementById("button-container").appendChild(button);
+
+        //update the local forage data 
+        setLists();
     })
 
     //appending the new button to the search container element 
