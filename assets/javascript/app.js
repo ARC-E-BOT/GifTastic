@@ -27,13 +27,22 @@ createGifPage();
 
 
 document.getElementById("giphy-nav-button").addEventListener("click", function(){
+    document.getElementById("giphy-nav-button").classList = "navButton borderRight navButton-clicked";
+    document.getElementById("ombd-nav-button").classList = "navButton borderRight";
+    document.getElementById("favorites-nav-button").classList = "navButton";
     createGifPage();
 })
 
-document.getElementById("ombd=nav-button").addEventListener("click", function(){
+document.getElementById("ombd-nav-button").addEventListener("click", function(){
+    document.getElementById("giphy-nav-button").classList = "navButton borderRight";
+    document.getElementById("ombd-nav-button").classList = "navButton borderRight navButton-clicked";
+    document.getElementById("favorites-nav-button").classList = "navButton";
     createOmdbHtmlPage();
 })
 
 document.getElementById("favorites-nav-button").addEventListener("click", function(){
+    document.getElementById("giphy-nav-button").classList = "navButton borderRight";
+    document.getElementById("ombd-nav-button").classList = "navButton borderRight";
+    document.getElementById("favorites-nav-button").classList = "navButton navButton-clicked";
     createFavoritesView();
 })
