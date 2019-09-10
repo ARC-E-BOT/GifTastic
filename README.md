@@ -19,7 +19,7 @@ Search Giphy and omdb with ease. Create buttons to add future searches to both g
 - click "Un-Favorite?" to remove it from view/Favorites
 # Use It
 
-https://arc-e-bot.github.io/GifTastic/
+https://coop25.github.io/GifTastic/
 
 # ToDo's
 - [x] add giphy functionality to the page
